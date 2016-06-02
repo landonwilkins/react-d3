@@ -24,6 +24,7 @@ module.exports = React.createClass({
     // https://github.com/mbostock/d3/wiki/Stack-Layout#offset
     stackOffset:            React.PropTypes.oneOf(['silhouette', 'expand', 'wigget', 'zero']),
     valuesAccessor:         React.PropTypes.func,
+    onClick:                React.PropTypes.func,
     title:                  React.PropTypes.string,
     width:                  React.PropTypes.number,
     xAxisClassName:         React.PropTypes.string,
@@ -169,7 +170,8 @@ module.exports = React.createClass({
               valuesAccessor={props.valuesAccessor}
               onMouseOver={this.onMouseOver}
               onMouseLeave={this.onMouseLeave}
-              />
+              onClick={this.props.onClick}
+            />
           </g>
         </Chart>
         {(props.showTooltip ? <Tooltip {...this.state.tooltip}/> : null)}

@@ -10,12 +10,19 @@ module.exports = React.createClass({
 
   propTypes: {
     _data:          React.PropTypes.array,
-    series:   React.PropTypes.array,
+    series:         React.PropTypes.array,
     colors:         React.PropTypes.func,
     colorAccessor:  React.PropTypes.func,
     height:         React.PropTypes.number,
+    onClick:        React.PropTypes.func,
     width:          React.PropTypes.number,
     valuesAccessor: React.PropTypes.func,
+  },
+
+  getDefaultProps() {
+    return {
+      onClick: Function.prototype,
+    }
   },
 
   render() {
@@ -46,6 +53,7 @@ module.exports = React.createClass({
         hoverAnimation={hoverAnimation}
         onMouseOver={this.props.onMouseOver}
         onMouseLeave={this.props.onMouseLeave}
+        onClick={this.props.onClick.bind(null, segment)}
         dataPoint={{xValue: segment.x, yValue: segment.y, seriesName: this.props.series[seriesIdx]}}
       />
     )
