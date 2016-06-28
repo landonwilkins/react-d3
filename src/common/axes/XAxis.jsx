@@ -22,6 +22,7 @@ module.exports = React.createClass({
     xAxisLabel:      React.PropTypes.string,
     xAxisTickValues: React.PropTypes.array,
     xAxisOffset:     React.PropTypes.number,
+    xAxisTextOrient: React.PropTypes.oneOf(['horizontal', 'vertical']),
     xScale:          React.PropTypes.func.isRequired,
     xOrient:         React.PropTypes.oneOf(['top', 'bottom']),
     yOrient:         React.PropTypes.oneOf(['left', 'right']),
@@ -75,6 +76,7 @@ module.exports = React.createClass({
           scale={props.xScale}
           orient={props.xOrient}
           orient2nd={props.yOrient}
+          textOrient={props.xAxisTextOrient}
           height={props.height}
           width={props.width}
           horizontalChart={props.horizontalChart}

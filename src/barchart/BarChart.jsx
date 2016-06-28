@@ -28,6 +28,7 @@ module.exports = React.createClass({
     title:                  React.PropTypes.string,
     width:                  React.PropTypes.number,
     xAxisClassName:         React.PropTypes.string,
+    xAxisTextOrient:        React.PropTypes.oneOf(['horizontal', 'vertical']),
     yAxisClassName:         React.PropTypes.string,
     yAxisTickCount:         React.PropTypes.number,
   },
@@ -142,13 +143,14 @@ module.exports = React.createClass({
               xAxisClassName={props.xAxisClassName}
               xAxisTickValues={props.xAxisTickValues}
               xAxisLabel={props.xAxisLabel}
-              xAxisLabelOffset={props.xAxisLabelOffset} 
+              xAxisLabelOffset={props.xAxisLabelOffset}
               xScale={xScale}
               margins={svgMargins}
               tickFormatting={props.xAxisFormatter}
               width={innerWidth}
               height={innerHeight}
               horizontalChart={props.horizontal}
+              xAxisTextOrient={props.xAxisTextOrient}
               xOrient={props.xOrient}
               yOrient={yOrient}
               gridVertical={props.gridVertical}

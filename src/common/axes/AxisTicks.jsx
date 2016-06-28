@@ -11,6 +11,7 @@ module.exports = React.createClass({
     scale: React.PropTypes.func.isRequired,
     orient: React.PropTypes.oneOf(['top','bottom','left','right']).isRequired,
     orient2nd: React.PropTypes.oneOf(['top','bottom','left','right']),
+    textOrient: React.PropTypes.oneOf(['horizontal', 'vertical']),
     height: React.PropTypes.number.isRequired,
     width: React.PropTypes.number.isRequired,
     horizontal: React.PropTypes.bool,
@@ -32,6 +33,7 @@ module.exports = React.createClass({
   },
   getDefaultProps() {
     return {
+      textOrient: "horizontal",
       innerTickSize: 6,
       outerTickSize: 6,
       tickStroke: '#000',
@@ -188,6 +190,14 @@ module.exports = React.createClass({
             }} x2={x2grid} y2={y2grid}></line>
         )
       }
+    };
+
+    if (props.textOrient == "vertical") {
+      textTransform = "rotate(-90)";
+      textAnchor = "end";
+      x1 = "-.71em";
+      dy = ".32em";
+      y1 = "0";
     }
 
     var optionalTextProps = textTransform ? {
